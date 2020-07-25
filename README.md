@@ -17,5 +17,3 @@ git clone https://github.com/klevisi2004/vishackle.git
 cd vishackle
 bash vishackle.sh
 ```
-
-### i made this for fun, no for money! :)
