@@ -29,7 +29,7 @@ printf " \e[1;31m8  8\e[0m\e[1;77m 88    88       88 \e[0m\e[1;93m88    88 88.  
 printf " \e[1;31m8888\e[0m\e[1;77m dP    dP \`88888P\' \e[0m\e[1;93mdP    dP \`88888P8 \`88888P\' dP   \`YP \e[0m\e[1;77m dP \`88888P\'                  v1.0\e[0m\n"
 printf "\e[1;93m                      .::\e[0m\e[1;77m Tool coded by: klevisi2004 \e[0m\e[1;93m::.\e[0m\n"
 printf "\n"
-printf "  \e[101m\e[1;77m::                   .......inshckle Active........                   ::\e[0m\n"
+printf "  \e[101m\e[1;77m::                   .......inshackle Active........                   ::\e[0m\n"
 printf "\n"
 
 }
