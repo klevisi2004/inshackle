@@ -12,7 +12,7 @@ Download Profile List, Activate Unfollower.
 #### Download: Stories, Saved Content, Following/followers list, Profile Info
 #### Unfollow all your following
 
-![](inshackle.PNG)
+![](V inshackle.PNG)
 
 ### Usage:
 ```
