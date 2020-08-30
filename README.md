@@ -1,9 +1,10 @@
 # inshackle v1.0
-## Author: github.com/klevisi2004/inshackle
-## IG: instagram.com/klevis_r1
+## Author: github.com/klevisi2004/
+## IG: @klevis_r1
 ### only for linux (kali linux)
 
-Instagram hacks: Track unfollowers, Increase your followers, Download Stories, etc
+Track unfollowers, Increase your followers, Download Stories, Download Saved content, Download Following, Download Followers List, 
+Download Profile List, Activate Unfollower.
 
 ### Features:
 #### Unfollow Tracker
