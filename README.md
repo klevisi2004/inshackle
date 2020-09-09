@@ -1,6 +1,8 @@
 # inshackle v1.0
-## Author: github.com/klevisi2004/
-## IG: @klevis_r1
+## Follow me:
+#### https://www.instagram.com/klevis_r1
+#### https://www.youtube.com/channel/UCMlZumdBQ7g9IUAD3v9mx8g
+#### https://github.com/klevisi2004
 ### only for linux (kali linux)
 
 Track unfollowers, Increase your followers, Download Stories, Download Saved content, Download Following, Download Followers List, 
@@ -11,9 +13,7 @@ Download Profile List, Activate Unfollower.
 #### Increase Followers
 #### Download: Stories, Saved Content, Following/followers list, Profile Info
 #### Unfollow all your following
-
-![](inshack.PNG)
-
+![Capture](https://user-images.githubusercontent.com/62477193/92646169-887bec00-f2d5-11ea-9f60-eb677be8bd6d.png)
 ### Usage:
 ```
 git clone https://github.com/klevisi2004/vishackle.git
