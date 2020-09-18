@@ -1,7 +1,7 @@
 # inshackle v1.0
 ## Follow me:
 #### https://www.instagram.com/klevis_r1
-#### https://www.youtube.com/channel/UCMlZumdBQ7g9IUAD3v9mx8g
+#### https://www.youtube.com/c/kvisiofficial
 #### https://github.com/klevisi2004
 ### only for linux (kali linux)
 
