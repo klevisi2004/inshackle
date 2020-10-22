@@ -3,7 +3,11 @@
 #### https://www.instagram.com/klevis_r1
 #### https://www.youtube.com/c/kvisiofficial
 #### https://github.com/klevisi2004
-### only for linux (kali linux)
+#### https://www.linkedin.com/in/klevis-ruci-0371081ba/
+###### klevis ruci
+
+### only for linux 
+
 
 Track unfollowers, Increase your followers, Download Stories, Download Saved content, Download Following, Download Followers List, 
 Download Profile List, Activate Unfollower.
