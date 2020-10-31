@@ -7,13 +7,13 @@
 ###### klevis ruci
 
 ## for linux 
+![Capture](https://user-images.githubusercontent.com/62477193/97790022-16c96b80-1bbd-11eb-9de7-b1c79c811801.png)
 
 ## Features:
-#### Unfollow Tracker
-#### Increase Followers
-#### Download: Stories, Saved Content, Following/followers list, Profile Info
-#### Unfollow all your following
-![Capture](https://user-images.githubusercontent.com/62477193/92646169-887bec00-f2d5-11ea-9f60-eb677be8bd6d.png)
+#### -Unfollow Tracker
+#### -Increase Followers
+#### -Download: Stories, Saved Content, Following/followers list, Profile Info
+#### -Unfollow all your following
 ### Usage:
 ```
 git clone https://github.com/klevisi2004/inshackle.git
