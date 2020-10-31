@@ -409,9 +409,9 @@ done
 
 increase_followers() {
 
-printf "\e[1;31m[\e[0m\e[1;31m+\e[0m\e[1;92m] Starting following/unfolling celebgrams\e[0m\n"
-printf "\e[1;31m[\e[0m\e[1;31m+\e[0m\e[1;31m] This program can increase your followers up to +30 in 1 hour \e[0m\n"
-printf "\e[1;31m[\e[0m\e[1;31m+\e[0m\e[1;77m]\e[0m\e[1;31m Press Ctrl + C to stop the process\e[0m\n"
+printf "\e[1;31m[\e[0m\e[1;31m+\e[0m\e[1;92m] Starting following/unfolling process\e[0m\n"
+printf "\e[1;31m[\e[0m\e[1;31m+\e[0m\e[1;92m] This program can increase your followers up to +30 in 1 hour \e[0m\n"
+printf "\e[1;31m[\e[0m\e[1;31m+\e[0m\e[1;31m]\e[0m\e[1;92m Press Ctrl + C to stop the process\e[0m\n"
 sleep 5
 
 username_id=$(curl -L -s 'https://www.instagram.com/'$user'' > getid && grep -o  'profilePage_[0-9]*.' getid | cut -d "_" -f2 | tr -d '"')
@@ -452,7 +452,7 @@ for celeb in $(cat celeb_id); do
 
 data='{"_uuid":"'$guid'", "_uid":"'$username_id'", "user_id":"'$celeb'", "_csrftoken":"'$var2'"}'
 hmac=$(echo -n "$data" | openssl dgst -sha256 -hmac "${ig_sig}" | cut -d " " -f2)
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Trying to follow %s ..." $celeb
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Following process %s ..." $celeb
 
 check_follow=$(curl -s -L -b cookie.$user -d "ig_sig_key_version=4&signed_body=$hmac.$data" -s --user-agent 'User-Agent: "Instagram 10.26.0 Android (18/4.3; 320dpi; 720x1280; Xiaomi; HM 1SW; armani; qcom; en_US)"' -w "\n%{http_code}\n" -H "$header" "https://i.instagram.com/api/v1/friendships/create/$celeb/" | grep -o '"following": true')
 
@@ -460,32 +460,33 @@ if [[ $check_follow == "" ]]; then
 printf "\n\e[1;31m [!] Error\n"
 exit 1
 else
-printf "\e[1;92mOK\e[0m\n"
+printf "\e[1;92mDone\e[0m\n"
 fi
 
 sleep 3
 
 done
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;92m Sleeping 60 secs...\e[0m\n"
+printf "\e[1;92m Sleeping 60 secs...\e[0m\n"
 sleep 60
 #unfollow
 for celeb in $(cat celeb_id); do
 data='{"_uuid":"'$guid'", "_uid":"'$username_id'", "user_id":"'$celeb'", "_csrftoken":"'$var2'"}'
 hmac=$(echo -n "$data" | openssl dgst -sha256 -hmac "${ig_sig}" | cut -d " " -f2)
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Trying to unfollow %s ..." $celeb
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Unfollowing process %s ..." $celeb
 check_unfollow=$(curl -s -L -b cookie.$user -d "ig_sig_key_version=4&signed_body=$hmac.$data" -s --user-agent 'User-Agent: "Instagram 10.26.0 Android (18/4.3; 320dpi; 720x1280; Xiaomi; HM 1SW; armani; qcom; en_US)"' -w "\n%{http_code}\n" -H "$header" "https://i.instagram.com/api/v1/friendships/destroy/$celeb/" | grep -o '"following": false' ) 
 
 if [[ $check_unfollow == "" ]]; then
 printf "\n\e[1;31m [!] Error, stoping to prevent blocking\n"
 exit 1
 else
-printf "\e[1;92mOK\e[0m\n"
+printf "\e[1;92mDone\e[0m\n"
 fi
 
 sleep 3
 done
-printf "\e[1;92m Sleeping 65 secs...\e[0m\n"
-sleep 65
+printf "\e[1;92m Sleeping 60 secs...\e[0m\n"
+printf "\e[1;92m Press Ctrl + C to stop the following process\e[0m\n"
+sleep 60
 
 
 done
@@ -510,13 +511,13 @@ track_unfollowers() {
 default_user=$user
 
  
-read -p $'\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;93m Account (leave it blank to use your account): \e[0m' user_account
+read -p $'\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Account (leave it blank to use your account): \e[0m' user_account
 
 user_account="${user_account:-${default_user}}"
 
 if [[ -e followers1.$user_account ]]; then
 
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;93m Last list found for user \e[0m\e[1;77m%s\e[0m\e[1;93m, creating a new and comparing it\e[0m\n" $user_account
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;92m Last list found for user \e[0m\e[1;77m%s\e[0m\e[1;92m, creating a new and comparing it\e[0m\n" $user_account
 total_followers
 
 cp $user_account.followers_backup followers2.$user_account
@@ -525,7 +526,7 @@ unfollowers=$(grep -Fxv -f followers2.$user_account followers1.$user_account)
 
 if [[ $unfollowers != "" ]]; then
 
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;93m Unfollowers:\e[0m\n"
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Unfollowers:\e[0m\n"
 
 grep -Fxv -f followers2.$user_account followers1.$user_account >> $user_account.unfollowers
 printf "\e[1;77m\n"
@@ -535,17 +536,17 @@ printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;93m Saved: \e[0m\e[1;77m%
 mv followers2.$user_account followers1.$user_account
 
 else
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;93m No Unfollower\e[0m\n"
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m No Unfollower\e[0m\n"
 fi
 
 
 else
 #get  followers
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;93m Creating followers list\e[0m\n"
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Creating followers list\e[0m\n"
 total_followers
 cp $user_account.followers_backup followers1.$user_account
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;93m Saved!\e[0m\e[1;77m (followers1.%s)\e[0m\n" $user_account
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;93m Please, run again to track unfollowers\e[0m\n"
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Saved!\e[0m\e[1;77m (followers1.%s)\e[0m\n" $user_account
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Please, run again to track unfollowers\e[0m\n"
 
 fi
 
@@ -558,7 +559,7 @@ get_info() {
 
 default_user=$user
 
-read -p $'\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;93m Account (leave it blank to use your account): \e[0m' user_account
+read -p $'\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Account (leave it blank to use your account): \e[0m' user_account
 
 user_account="${user_account:-${default_user}}"
 
@@ -574,12 +575,12 @@ user_id=$(curl -L -s 'https://www.instagram.com/'$user_account'' > getid && grep
 data='{"_uuid":"'$guid'", "_uid":"'$username_id'", "_csrftoken":"'$var2'"}'
 hmac=$(echo -n "$data" | openssl dgst -sha256 -hmac "${ig_sig}" | cut -d " " -f2)
 curl -L -b cookie.$user -d "ig_sig_key_version=4&signed_body=$hmac.$data" -s --user-agent 'User-Agent: "Instagram 10.26.0 Android (18/4.3; 320dpi; 720x1280; Xiaomi; HM 1SW; armani; qcom; en_US)"' -w "\n%{http_code}\n" -H "$header" "https://i.instagram.com/api/v1/users/$user_id/info" > $user_account/profile.info
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;77m %s\e[0m\e[1;93m account info:\e[0m\n" $user_account
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;77m %s\e[0m\e[1;31m account info:\e[0m\n" $user_account
 cat $user_account/profile.info
 grep -o 'https://[^ ]*.jpg[^\ ]*.' $user_account/profile.info | cut -d '"' -f1 | tr -d '\\' | uniq > $user_account/profile_pic
 
 
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;93m Downloading Profile Pictures...\e[0m"
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Downloading Profile Pictures...\e[0m"
 count=0
 for pic in $(cat $user_account/profile_pic); do
 
@@ -587,7 +588,7 @@ wget -O $user_account/profile_pic$count.jpg $pic > /dev/null 2>&1
 let count++
 done
 printf "\e[1;92mDONE\e[0m\n"
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;93m Saved:\e[0m\e[1;77m %s/\e[0m\n" $user_account
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Saved:\e[0m\e[1;77m %s/\e[0m\n" $user_account
 
 }
 
@@ -626,7 +627,7 @@ login_user
 default_user=$user
 
  
-read -p $'\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;93m Account (leave it blank to use your account): \e[0m' user_account
+read -p $'\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Account (leave it blank to use your account): \e[0m' user_account
 
 user_account="${user_account:-${default_user}}"
 get_following
@@ -636,7 +637,7 @@ login_user
 default_user=$user
 
  
-read -p $'\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;93m Account (leave it blank to use your account): \e[0m' user_account
+read -p $'\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Account (leave it blank to use your account): \e[0m' user_account
 
 user_account="${user_account:-${default_user}}"
 total_followers
@@ -653,7 +654,7 @@ unfollower
 
 else
 
-printf "\e[1;93m[!] Invalid Option!\e[0m\n"
+printf "\e[1;31m[!] Invalid Option!\e[0m\n"
 sleep 2
 menu
 
