@@ -26,10 +26,10 @@ printf " \e[1;31m8  8\e[0m\e[1;31m                   \e[0m\e[1;93m88            
 printf " \e[1;31m8  8\e[0m\e[1;31m 88d888b. .d8888b. \e[0m\e[1;93m88d888b. .d8888b. .d8888b. 88  .dP  \e[0m\e[1;77m 88 .d8888b.  \e[0m\n"
 printf " \e[1;31m8  8\e[0m\e[1;31m 88'  \`88 Y8ooooo. \e[0m\e[1;93m88\'  \`88 88\'  \`88 88'  \`\"\" 88888\"   \e[0m\e[1;77m 88 88ooood8  \e[0m\e[0m\n"
 printf " \e[1;31m8  8\e[0m\e[1;31m 88    88       88 \e[0m\e[1;93m88    88 88.  .88 88.  ... 88  \`8b. \e[0m\e[1;77m 88 88.  ...  \e[0m\n"
-printf " \e[1;31m8888\e[0m\e[1;31m dP    dP \`88888P\' \e[0m\e[1;93mdP    dP \`88888P8 \`88888P\' dP   \`YP \e[0m\e[1;77m dP \`88888P\'\e[0m\n"    \e[92;m v1.0\e[0m\n"
-printf "\e[1;92m                      .::\e[0m\e[1;77m created by: klevisi2004 \e[0m\e[1;92m::.\e[0m\n"
+printf " \e[1;31m8888\e[0m\e[1;31m dP    dP \`88888P\' \e[0m\e[1;93mdP    dP \`88888P8 \`88888P\' dP   \`YP \e[0m\e[1;77m dP \`88888P\'     v1.5\e[0m\n"
+printf "\e[1;92m                      .::\e[0m\e[1;31m Coded by: klevisi2004 \e[0m\e[1;92m::.\e[0m\n"
 printf "\n"
-printf "  \e[101m\e[1;92m::                   .......inshackle Active........                   ::\e[0m\n"
+printf "  \e[101m\e[1;77m::                   .......inshackle Active........                   ::\e[0m\n"
 printf "\n"
 
 }
