@@ -1,14 +1,14 @@
 # inshackle v1.5 , 2020 edition
-### Follow me:
+## Follow me:
 #### https://www.instagram.com/klevis_r1
 #### https://www.youtube.com/c/kvisiofficial
 #### https://github.com/klevisi2004
 #### https://www.linkedin.com/in/klevis-ruci-0371081ba/
 ###### klevis ruci
 
-### for linux 
+## for linux 
 
-### Features:
+## Features:
 #### Unfollow Tracker
 #### Increase Followers
 #### Download: Stories, Saved Content, Following/followers list, Profile Info
