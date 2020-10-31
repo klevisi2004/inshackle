@@ -4,6 +4,7 @@
 # github.com/klevisi2004/inshackle
 
 
+
 string4=$(openssl rand -hex 32 | cut -c 1-4)
 string8=$(openssl rand -hex 32  | cut -c 1-8)
 string12=$(openssl rand -hex 32 | cut -c 1-12)
@@ -21,13 +22,13 @@ ig_sig="4f8732eb9ba7d1c8e8897a75d6474d4eb3f5279137431b2aafb71fafe2abe178"
 
 banner() {
 printf " \n"
-printf " \e[1;31md88b\e[0m\e[1;31m                   \e[0m\e[1;93mdP                         dP       \e[0m\e[1;77m dP           \e[0m\n"
-printf " \e[1;31m8  8\e[0m\e[1;31m                   \e[0m\e[1;93m88                         88       \e[0m\e[1;77m 88           \e[0m\n"
-printf " \e[1;31m8  8\e[0m\e[1;31m 88d888b. .d8888b. \e[0m\e[1;93m88d888b. .d8888b. .d8888b. 88  .dP  \e[0m\e[1;77m 88 .d8888b.  \e[0m\n"
-printf " \e[1;31m8  8\e[0m\e[1;31m 88'  \`88 Y8ooooo. \e[0m\e[1;93m88\'  \`88 88\'  \`88 88'  \`\"\" 88888\"   \e[0m\e[1;77m 88 88ooood8  \e[0m\e[0m\n"
-printf " \e[1;31m8  8\e[0m\e[1;31m 88    88       88 \e[0m\e[1;93m88    88 88.  .88 88.  ... 88  \`8b. \e[0m\e[1;77m 88 88.  ...  \e[0m\n"
-printf " \e[1;31m8888\e[0m\e[1;31m dP    dP \`88888P\' \e[0m\e[1;93mdP    dP \`88888P8 \`88888P\' dP   \`YP \e[0m\e[1;77m dP \`88888P\'     v1.5\e[0m\n"
-printf "\e[1;92m                      .::\e[0m\e[1;31m Coded by: klevisi2004 \e[0m\e[1;92m::.\e[0m\n"
+printf " \e[1;31md88b\e[0m\e[1;31m                   \e[0m\e[1;92mdP                         dP       \e[0m\e[1;77m dP           \e[0m\n"
+printf " \e[1;31m8  8\e[0m\e[1;31m                   \e[0m\e[1;92m88                         88       \e[0m\e[1;77m 88           \e[0m\n"
+printf " \e[1;31m8  8\e[0m\e[1;31m 88d888b. .d8888b. \e[0m\e[1;92m88d888b. .d8888b. .d8888b. 88  .dP  \e[0m\e[1;77m 88 .d8888b.  \e[0m\n"
+printf " \e[1;31m8  8\e[0m\e[1;31m 88'  \`88 Y8ooooo. \e[0m\e[1;92m88\'  \`88 88\'  \`88 88'  \`\"\" 88888\"   \e[0m\e[1;77m 88 88ooood8  \e[0m\e[0m\n"
+printf " \e[1;31m8  8\e[0m\e[1;31m 88    88       88 \e[0m\e[1;92m88    88 88.  .88 88.  ... 88  \`8b. \e[0m\e[1;77m 88 88.  ...  \e[0m\n"
+printf " \e[1;31m8888\e[0m\e[1;31m dP    dP \`88888P\' \e[0m\e[1;92mdP    dP \`88888P8 \`88888P\' dP   \`YP \e[0m\e[1;77m dP \`88888P\'         v1.5\e[0m\n"
+printf "\e[1;31m                      .::\e[0m\e[1;92m Coded by: klevisi2004 \e[0m\e[1;31m::.\e[0m\n"
 printf "\n"
 printf "  \e[101m\e[1;77m::                   .......inshackle Active........                   ::\e[0m\n"
 printf "\n"
@@ -46,11 +47,11 @@ fi
 
 if [[ -e cookie.$user ]]; then
 
-printf "\e[1;31m[\e[0m\e[1;77m*\e[0m\e[1;31m]\e[0m\e[1;93m Cookies found for user\e[0m\e[1;77m %s\e[0m\n" $user
+printf "\e[1;31m[\e[0m\e[1;77m*\e[0m\e[1;31m]\e[0m\e[1;92m Cookies found for user\e[0m\e[1;77m %s\e[0m\n" $user
 
 default_use_cookie="Y"
 
-read -p $'\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;93m Use it?\e[0m\e[1;77m [Y/n]\e[0m ' use_cookie
+read -p $'\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;92m Use it?\e[0m\e[1;77m [Y/n]\e[0m ' use_cookie
 
 use_cookie="${use_cookie:-${default_use_cookie}}"
 
@@ -64,7 +65,7 @@ fi
 
 else
 
-read -s -p $'\e[1;31m[\e[0m\e[1;77m*\e[0m\e[1;31m]\e[0m\e[1;m Password: \e[0m' pass
+read -s -p $'\e[1;31m[\e[0m\e[1;77m*\e[0m\e[1;31m]\e[0m\e[1;31m Password: \e[0m' pass
 printf "\n"
 data='{"phone_id":"'$phone'", "_csrftoken":"'$var2'", "username":"'$user'", "guid":"'$guid'", "device_id":"'$device'", "password":"'$pass'", "login_attempt_count":"0"}'
 
@@ -73,10 +74,10 @@ IFS=$'\n'
 hmac=$(echo -n "$data" | openssl dgst -sha256 -hmac "${ig_sig}" | cut -d " " -f2)
 useragent='User-Agent: "Instagram 10.26.0 Android (18/4.3; 320dpi; 720x1280; Xiaomi; HM 1SW; armani; qcom; en_US)"'
 
-printf "\e[1;77m[\e[0m\e[1;92m+\e[0m\e[1;77m] Trying to login as\e[0m\e[1;93m %s\e[0m\n" $user
+printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;31m] Trying to login as\e[0m\e[1;92m %s\e[0m\n" $user
 IFS=$'\n'
 var=$(curl -c cookie.$user -d "ig_sig_key_version=4&signed_body=$hmac.$data" -s --user-agent 'User-Agent: "Instagram 10.26.0 Android (18/4.3; 320dpi; 720x1280; Xiaomi; HM 1SW; armani; qcom; en_US)"' -w "\n%{http_code}\n" -H "$header" "https://i.instagram.com/api/v1/accounts/login/" | grep -o "logged_in_user\|challenge\|many tries\|Please wait" | uniq ); 
-if [[ $var == "challenge" ]]; then printf "\e[1;93m\n[!] Challenge required\n" ; exit 1; elif [[ $var == "logged_in_user" ]]; then printf "\e[1;92m \n[+] Login Successful\n" ; elif [[ $var == "Please wait" ]]; then echo "Please wait"; fi; 
+if [[ $var == "challenge" ]]; then printf "\e[1;92m\n[!] Challenge required\n" ; exit 1; elif [[ $var == "logged_in_user" ]]; then printf "\e[1;92m \n[+] Login Successful\n" ; elif [[ $var == "Please wait" ]]; then echo "Please wait"; fi; 
 
 fi
 
@@ -133,7 +134,7 @@ printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;31m] Downloading image\e[0m\e[1;93m %s/
 wget $img -O $user/images/image$count_img.jpg > /dev/null 2>&1
 printf "\e[1;92mDONE!\n\e[0m"
 done
-printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;77m] Saved:\e[0m\e[1;93m %s/images/\e[0m\n" $user
+printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;31m] Saved:\e[0m\e[1;93m %s/images/\e[0m\n" $user
 
 cat $user_account.saved_ig.* > $user_account.raw_saved
 grep -o 'https://[^ ]*.mp4[^\ ]*.' $user_account.raw_saved | cut -d '"' -f1 | tr -d '\\' | uniq > vid_$user  
@@ -151,7 +152,7 @@ printf "\e[1;92mDONE!\n\e[0m"
 wget $link -O $user/videos/video$count.mp4 > /dev/null 2>&1
 done
 
-printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;77m] Saved:\e[0m\e[1;93m %s/videos/\e[0m\n" $user 
+printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;31m] Saved:\e[0m\e[1;93m %s/videos/\e[0m\n" $user 
 
 
 }
@@ -212,7 +213,7 @@ done
 total_followers() {
 
 printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Creating followers list for user\e[0m \e[1;77m%s\e[0m\n" $user_account
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;92m Please wait...\e[0m\n"
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Please wait...\e[0m\n"
 
 
 user_id=$(curl -L -s 'https://www.instagram.com/'$user_account'' > getid && grep -o  'profilePage_[0-9]*.' getid | cut -d "_" -f2 | tr -d '"')
@@ -298,7 +299,7 @@ if [[ ! -d $user_account/story/ ]]; then
 mkdir -p $user_account/story/
 fi
 
-printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;92m] Total Video Stories:\e[0m\e[1;93m %s\e[0m\n" $tot_vid
+printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;31m] Total Video Stories:\e[0m\e[1;93m %s\e[0m\n" $tot_vid
 IFS=$'\n'
 
 #Story videos
@@ -396,7 +397,7 @@ if [[ $check_unfollow == "" ]]; then
 printf "\n\e[1;31m [!] Error, stoping to prevent blocking\e[0m\n"
 exit 1
 else
-printf "\e[1;92mOK\e[0m\n"
+printf "\e[1;92mDone\e[0m\n"
 fi
 
 sleep 3
@@ -409,9 +410,9 @@ done
 
 increase_followers() {
 
-printf "\e[1;31m[\e[0m\e[1;31m+\e[0m\e[1;92m] Starting following/unfolling process\e[0m\n"
-printf "\e[1;31m[\e[0m\e[1;31m+\e[0m\e[1;92m] This program can increase your followers up to +30 in 1 hour \e[0m\n"
-printf "\e[1;31m[\e[0m\e[1;31m+\e[0m\e[1;31m]\e[0m\e[1;92m Press Ctrl + C to stop the process\e[0m\n"
+printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;92m] Starting following/unfollowing process\e[0m\n"
+printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;92m] you can increase your followers up to +30 in 1 hour \e[0m\n"
+printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;77m]\e[0m\e[1;92m Press Ctrl + C to stop \e[0m\n"
 sleep 5
 
 username_id=$(curl -L -s 'https://www.instagram.com/'$user'' > getid && grep -o  'profilePage_[0-9]*.' getid | cut -d "_" -f2 | tr -d '"')
@@ -421,6 +422,7 @@ neymar="26669533"
 ariana="7719696"
 beyonce="247944034"
 cristiano="173560420"
+kimkardashian="18428658"
 kendall="6380930"
 therock="232192182"
 kylie="12281817"
@@ -442,7 +444,7 @@ instagram="25025320"
 
 
 if [[ ! -e celeb_id ]]; then
-printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" $dualipa $mileycyrus $shawnmendes $katyperry $charlieputh  $lelepons $camila_cabello $madonna $leonardodicaprio $ladygaga $taylorswift $instagram $neymar $selena $ariana $beyonce $cristiano $kendall $therock $kylie $jelopez $messi > celeb_id
+printf "%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n%s\n" $dualipa $mileycyrus $shawnmendes $katyperry $charlieputh $lelepons $camila_cabello $madonna $leonardodicaprio $ladygaga $taylorswift $instagram $neymar $selena $ariana $beyonce $cristiano $kimkardashian $kendall $therock $kylie $jelopez $messi > celeb_id
 fi
 
 while [[ true ]]; do
@@ -452,7 +454,7 @@ for celeb in $(cat celeb_id); do
 
 data='{"_uuid":"'$guid'", "_uid":"'$username_id'", "user_id":"'$celeb'", "_csrftoken":"'$var2'"}'
 hmac=$(echo -n "$data" | openssl dgst -sha256 -hmac "${ig_sig}" | cut -d " " -f2)
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Following process %s ..." $celeb
+printf "\e[1;31m Following process %s ..." $celeb
 
 check_follow=$(curl -s -L -b cookie.$user -d "ig_sig_key_version=4&signed_body=$hmac.$data" -s --user-agent 'User-Agent: "Instagram 10.26.0 Android (18/4.3; 320dpi; 720x1280; Xiaomi; HM 1SW; armani; qcom; en_US)"' -w "\n%{http_code}\n" -H "$header" "https://i.instagram.com/api/v1/friendships/create/$celeb/" | grep -o '"following": true')
 
@@ -466,13 +468,13 @@ fi
 sleep 3
 
 done
-printf "\e[1;92m Sleeping 60 secs...\e[0m\n"
+printf "\e[1;77m Sleeping 60 secs...\e[0m\n"
 sleep 60
 #unfollow
 for celeb in $(cat celeb_id); do
 data='{"_uuid":"'$guid'", "_uid":"'$username_id'", "user_id":"'$celeb'", "_csrftoken":"'$var2'"}'
 hmac=$(echo -n "$data" | openssl dgst -sha256 -hmac "${ig_sig}" | cut -d " " -f2)
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Unfollowing process %s ..." $celeb
+printf "\e[1;31m Unfollowign process %s ..." $celeb
 check_unfollow=$(curl -s -L -b cookie.$user -d "ig_sig_key_version=4&signed_body=$hmac.$data" -s --user-agent 'User-Agent: "Instagram 10.26.0 Android (18/4.3; 320dpi; 720x1280; Xiaomi; HM 1SW; armani; qcom; en_US)"' -w "\n%{http_code}\n" -H "$header" "https://i.instagram.com/api/v1/friendships/destroy/$celeb/" | grep -o '"following": false' ) 
 
 if [[ $check_unfollow == "" ]]; then
@@ -484,8 +486,8 @@ fi
 
 sleep 3
 done
-printf "\e[1;92m Sleeping 60 secs...\e[0m\n"
-printf "\e[1;92m Press Ctrl + C to stop the following process\e[0m\n"
+printf "\e[1;77m Sleeping 60 secs...\e[0m\n"
+printf "\e[1;77m Press \"Ctrl + c\" to stop following process \e[0m\n"
 sleep 60
 
 
@@ -517,7 +519,7 @@ user_account="${user_account:-${default_user}}"
 
 if [[ -e followers1.$user_account ]]; then
 
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;92m Last list found for user \e[0m\e[1;77m%s\e[0m\e[1;92m, creating a new and comparing it\e[0m\n" $user_account
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Last list found for user \e[0m\e[1;77m%s\e[0m\e[1;31m, creating a new and comparing it\e[0m\n" $user_account
 total_followers
 
 cp $user_account.followers_backup followers2.$user_account
@@ -532,11 +534,11 @@ grep -Fxv -f followers2.$user_account followers1.$user_account >> $user_account.
 printf "\e[1;77m\n"
 cat $user_account.unfollowers
 printf "\e[0m\n"
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;93m Saved: \e[0m\e[1;77m%s.unfollowers\e[0m\n" $user_account
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Saved: \e[0m\e[1;31m%s.unfollowers\e[0m\n" $user_account
 mv followers2.$user_account followers1.$user_account
 
 else
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m No Unfollower\e[0m\n"
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;92m No Unfollower\e[0m\n"
 fi
 
 
@@ -588,7 +590,7 @@ wget -O $user_account/profile_pic$count.jpg $pic > /dev/null 2>&1
 let count++
 done
 printf "\e[1;92mDONE\e[0m\n"
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Saved:\e[0m\e[1;77m %s/\e[0m\n" $user_account
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;92m Saved:\e[0m\e[1;77m %s/\e[0m\n" $user_account
 
 }
 
@@ -606,7 +608,7 @@ printf " \e[1;31m[\e[0m\e[1;77m08\e[0m\e[1;31m]\e[0m\e[1;31m Activate Unfollower
 printf "\n"
 
 
-read -p $' \e[1;31m[\e[0m\e[1;31m::\e[0m\e[1;31m]\e[0m\e[1;77m Choose an option: \e[0m' option
+read -p $' \e[1;31m[\e[0m\e[1;77m::\e[0m\e[1;31m]\e[0m\e[1;92m Choose an option: \e[0m' option
 
 if [[ $option -eq 1 ]]; then
 login_user
