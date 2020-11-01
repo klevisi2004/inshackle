@@ -130,11 +130,11 @@ printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;31m] Total images:\e[0m\e[1;93m %s\e[0m
 for img in $(cat links); do
 
 let count_img++
-printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;31m] Downloading image\e[0m\e[1;93m %s/%s\e[0m " $count_img $tot_img
+printf "\e[1;31m] Downloading image\e[0m\e[1;77m %s/%s\e[0m " $count_img $tot_img
 wget $img -O $user/images/image$count_img.jpg > /dev/null 2>&1
-printf "\e[1;92mDONE!\n\e[0m"
+printf "\e[1;92mDONE\n\e[0m"
 done
-printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;31m] Saved:\e[0m\e[1;93m %s/images/\e[0m\n" $user
+printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;31m] Saved:\e[0m\e[1;92m %s/images/\e[0m\n" $user
 
 cat $user_account.saved_ig.* > $user_account.raw_saved
 grep -o 'https://[^ ]*.mp4[^\ ]*.' $user_account.raw_saved | cut -d '"' -f1 | tr -d '\\' | uniq > vid_$user  
@@ -144,15 +144,15 @@ if [[ ! -d $user/videos ]]; then
 mkdir -p $user/videos
 fi
 
-printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;31m] Total Videos:\e[0m\e[1;93m %s\e[0m\n" $tot_vid
+printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;31m] Total Videos:\e[0m\e[1;92m %s\e[0m\n" $tot_vid
 for link in $(cat vid_$user); do
 let count++
-printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;31m] Downloading video\e[0m\e[1;93m %s/%s\e[0m " $count $tot_vid
+printf "\e[1;31m] Downloading video\e[0m\e[1;77m %s/%s\e[0m " $count $tot_vid
 printf "\e[1;92mDONE!\n\e[0m"
 wget $link -O $user/videos/video$count.mp4 > /dev/null 2>&1
 done
 
-printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;31m] Saved:\e[0m\e[1;93m %s/videos/\e[0m\n" $user 
+printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;31m] Saved:\e[0m\e[1;92m %s/videos/\e[0m\n" $user 
 
 
 }
@@ -243,8 +243,8 @@ else
 grep -o 'username": "[^ ]*.' $user_account.followers.* | cut -d " " -f2 | tr -d '"' | tr -d ',' > $user_account.followers_backup
 
 tot_follow=$(wc -l $user_account.followers_backup | cut -d " " -f1)
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Total Followers:\e[0m\e[1;77m %s\e[0m\n" $tot_follow
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Saved:\e[0m\e[1;77m %s.followers_backup\e[0m\n" $user_account
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;92m Total Followers:\e[0m\e[1;77m %s\e[0m\n" $tot_follow
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;92m Saved:\e[0m\e[1;77m %s.followers_backup\e[0m\n" $user_account
 if [[ $user == $user_account ]]; then
 
 if [[ ! -d $user/raw_followers/ ]]; then
@@ -376,8 +376,8 @@ user_account=$user
 get_following
 
 printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Preparing to unfollow all followers from \e[0m\e[1;77m%s ...\e[0m\n" $user_account
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Press \"Ctrl + c\" to stop...\e[0m\n"
-sleep 4
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;77m Press \"Ctrl + c\" to stop...\e[0m\n"
+sleep 2
 while [[ true ]]; do
 
 
@@ -390,7 +390,7 @@ user_id=$(curl -L -s 'https://www.instagram.com/'$unfollow_name'' > getunfollowi
 
 data='{"_uuid":"'$guid'", "_uid":"'$username_id'", "user_id":"'$user_id'", "_csrftoken":"'$var2'"}'
 hmac=$(echo -n "$data" | openssl dgst -sha256 -hmac "${ig_sig}" | cut -d " " -f2)
-printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Trying to unfollow %s ..." $unfollow_name
+printf "\e[1;31m[\e[0m\e[1;77m+\e[0m\e[1;31m]\e[0m\e[1;31m Unfollowing %s ..." $unfollow_name
 check_unfollow=$(curl -s -L -b cookie.$user -d "ig_sig_key_version=4&signed_body=$hmac.$data" -s --user-agent 'User-Agent: "Instagram 10.26.0 Android (18/4.3; 320dpi; 720x1280; Xiaomi; HM 1SW; armani; qcom; en_US)"' -w "\n%{http_code}\n" -H "$header" "https://i.instagram.com/api/v1/friendships/destroy/$user_id/" | grep -o '"following": false' ) 
 
 if [[ $check_unfollow == "" ]]; then
@@ -400,7 +400,7 @@ else
 printf "\e[1;92mDone\e[0m\n"
 fi
 
-sleep 3
+sleep 2
 done
 
 
@@ -413,7 +413,7 @@ increase_followers() {
 printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;92m] Starting following/unfollowing process\e[0m\n"
 printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;92m] you can increase your followers up to +30 in 1 hour \e[0m\n"
 printf "\e[1;77m[\e[0m\e[1;31m+\e[0m\e[1;77m]\e[0m\e[1;92m Press Ctrl + C to stop \e[0m\n"
-sleep 5
+sleep 4
 
 username_id=$(curl -L -s 'https://www.instagram.com/'$user'' > getid && grep -o  'profilePage_[0-9]*.' getid | cut -d "_" -f2 | tr -d '"')
 
@@ -465,7 +465,7 @@ else
 printf "\e[1;92mDone\e[0m\n"
 fi
 
-sleep 3
+sleep 2
 
 done
 printf "\e[1;77m Sleeping 60 secs...\e[0m\n"
@@ -484,10 +484,10 @@ else
 printf "\e[1;92mDone\e[0m\n"
 fi
 
-sleep 3
+sleep 2
 done
 printf "\e[1;77m Sleeping 60 secs...\e[0m\n"
-printf "\e[1;77m Press \"Ctrl + c\" to stop following process \e[0m\n"
+printf "\e[1;92m Press \"Ctrl + c\" to stop starting the following process again \e[0m\n"
 sleep 60
 
 
