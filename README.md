@@ -1,6 +1,6 @@
 # inshackle v1.5 , 2020 edition
 ## Follow me:
-#### https://www.instagram.com/klevis_r1
+#### https://www.instagram.com/vissi_16
 #### https://www.youtube.com/c/kvisiofficial
 #### https://github.com/klevisi2004
 #### https://www.linkedin.com/in/klevis-ruci-0371081ba/
